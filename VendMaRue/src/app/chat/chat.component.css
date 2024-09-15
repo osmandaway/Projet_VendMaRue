@@ -1,0 +1,31 @@
+.center {
+    display: flex;
+    justify-content: flex-end; /* Aligner à droite */
+    width: 50%;
+    margin: 0 auto;
+  }
+  form {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: var(--color4);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--color4a);
+  }

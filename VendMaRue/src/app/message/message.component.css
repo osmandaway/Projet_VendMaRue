@@ -1,0 +1,30 @@
+.center {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .message {
+    border-radius: 20px;
+    margin: 0 15px 5px;
+    padding: 10px 20px;
+    position: relative;
+  }
+  
+  .message.from {
+    background-color: #E5E4E9;
+    color: #363636;
+    margin-right: auto; /* Aligner à gauche */
+  }
+  
+  .message.to {
+    background-color: #2095FE;
+    color: #fff;
+    margin-left: auto; /* Aligner à droite */
+  }
+  
+  .message.to + .message.to,
+  .message.from + .message.from {
+    margin-top: -7px;
+  }

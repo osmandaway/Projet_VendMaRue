@@ -1,0 +1,24 @@
+:root {
+    --color1: #FFFFFF;
+    --color2: #f4f0f0;
+    --color3: #5b53d3;
+    --color4: #9792E3;
+    --color4a : rgba(151,146,227,0.6);
+}
+
+
+@media (min-width: 870px) {
+    *> .modal-dialog {
+    min-width: 800px !important;
+    margin-right: auto;
+    margin-left:auto;
+    }
+}
+body{
+    background-color: var(--color2);
+}
+
+/* 
+.navbar,.side-nav-content{
+    background-color: var(--color3)!important;
+} */

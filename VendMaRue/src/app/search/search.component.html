@@ -1,0 +1,25 @@
+<div class="container profile-logo dropstart">
+  <form [formGroup]="searchForm" class="d-flex me-5" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Rechercher..." formControlName="searchValue" class="form-control me-3"
+      (input)="onSearchInput()">
+  </form>
+  <ul *ngIf="hasValue" class="list">
+    <li class="list-item" *ngFor="let user of users.slice(0, 4)" (click)="goToProfile(user.id)">
+      <p class="small">Utilisateur : </p> {{ user.user_name }} {{ user.user_surname }}
+    </li>
+    <li class="list-item" *ngFor="let card of cards.slice(0, 4)" (click)="goToCard(card.id)">
+      <p class="small"> Carte : </p>: {{ card.title }}
+    </li>
+    <ng-container *ngFor="let card of cardsloc.slice(0, 4); let i = index">
+      <li class="list-item" *ngIf="i === 0 || card.loc !== cardsloc[i - 1].loc" (click)="goToLoc(card.loc)">
+        <p class="small">Localisation : </p> {{ card.loc }}
+      </li>
+    </ng-container>
+    <ng-container *ngFor="let card of cardsbrands.slice(0, 4); let i = index">
+      <li class="list-item" *ngIf="i === 0 || card.brand !== cardsbrands[i - 1].loc" (click)="goToBrand(card.brand)">
+        <p class="small">Brand  : </p> {{ card.brand }}
+      </li>
+    </ng-container>
+
+  </ul>
+</div>

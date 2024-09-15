@@ -1,0 +1,32 @@
+.dropdown-menu-dark{
+  background-color: var(--color3)!important;
+}
+
+nav{
+  height: 100%;
+  background-color: var(--color3)!important;
+}
+
+.side-nav-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.side-nav-button:hover{
+  background-color: var(--color4a)!important;
+  border-radius: 30%;
+}
+
+.btn-outline-light:hover{
+  background-color: var(--color4a)!important;
+}
+
+.logo{
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

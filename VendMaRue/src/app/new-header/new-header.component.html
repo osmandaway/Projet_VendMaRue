@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand navbar-dark px-2">
+
+  <div class="side-nav-button p-2 me-3 text-light" (click)="SideNavToggle()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <img class="logo" src="assets/logo4.jpg" alt="logo">
+
+  <a class="navbar-brand px-2" routerLink="">VendMaRue</a>
+
+  <div  class="navbar-collapse" >
+    <ul class="navbar-nav me-auto"*ngIf="getUserService().checkUserSession()">
+      <li class="nav-item dropdown">
+        <a routerLink="/create-card" class="nav-link" role="button">
+          Vendre un produit
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a routerLink="/mes-annonces" class="nav-link" role="button">
+          Mes annonces
+        </a>
+      </li>
+    </ul>
+
+  </div>
+  <app-search></app-search>
+  <button class="btn btn-outline-light" routerLink="/connexion" type="button"
+    *ngIf="!getUserService().checkUserSession()">Connexion</button>
+  <button class="btn btn-outline-light" routerLink="/inscription" type="button"
+    *ngIf="!getUserService().checkUserSession()">Inscription</button>
+
+
+  <div class="profile-logo dropstart" *ngIf="getUserService().checkUserSession()">
+    <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
+      {{getUserService().getUserSurname()}}
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li><a class="dropdown-item" [routerLink]="'/profil/' + getUserService().getUserId()">Profil</a></li>
+      <li><a class="dropdown-item" routerLink="" (click)="getUserService().deleteUserSession()">Déconnexion</a></li>
+      <li><a class="dropdown-item" routerLink="/settings">Paramètres</a></li>
+    </ul>
+  </div>
+
+
+</nav>

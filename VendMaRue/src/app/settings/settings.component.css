@@ -1,0 +1,141 @@
+.wrapper {
+    padding: 30px 10px;
+    border: 1px solid var(--color4a);
+    border-radius: 15px;
+    margin: 10px auto;
+    max-width: 1200px;
+}
+
+.border-right {
+    border-right: 1px solid var(--color4);
+}
+
+.border-left {
+    border-left: 1px solid var(--color4);
+}
+
+.border-top {
+    border-top: 1px solid var(--color4);
+}
+
+label {
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color4);
+    padding-left: 3px;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+input[placeholder] {
+    font-weight: 500;
+}
+
+.danger {
+    background-color: var(--color3) !important;
+    color: var(--color1);
+    border: 1px solid #ddd;
+    max-width: min-content;
+}
+
+.danger:hover {
+    background-color: var(--color4a) !important;
+    color: #e20404;
+}
+
+.btn {
+    background: var(--color4);
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 5px 50px 5px 50px;
+    border: none;
+    text-decoration: none;
+    outline: 0;
+    border-radius: 100px
+}
+
+.btn:hover {
+    background: var(--color4a);
+}
+
+@media(max-width:576px) {
+    .wrapper {
+        padding: 25px 20px;
+    }
+
+    #deactivate {
+        line-height: 18px;
+    }
+}
+
+
+/* AVATAR  */
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: 50px auto;
+}
+
+.avatar-upload .avatar-edit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+
+.avatar-upload .avatar-edit input {
+    display: none;
+}
+
+.avatar-upload .avatar-edit input+label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+
+.avatar-upload .avatar-edit input+label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+
+.avatar-upload .avatar-edit input+label:after {
+    content: "\f040";
+    font-family: 'FontAwesome';
+    color: #757575;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.avatar-upload .avatar-preview {
+    width: 192px;
+    height: 192px;
+    position: relative;
+    border-radius: 100%;
+    border: 6px solid #F8F8F8;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.avatar-upload .avatar-preview>div {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

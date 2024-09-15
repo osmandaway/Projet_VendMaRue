@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <button type="submit" class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <img *ngIf="done" [src]="card.photo" alt="Card Photo" class="img-fluid">
+    <div class="label-top shadow-sm" *ngIf="card.OnSale > 0"
+        [ngStyle]="{ 'background': card.OnSale >= 80 ? 'red' : (card.OnSale >= 50 ? 'orange' : (card.OnSale >= 25 ? 'yellow' : '')) }">
+        -{{ card.OnSale }}%
+    </div>
+    <span class="float-start badge rounded-pill bg-primary">{{card.brand}}</span>
+    <span class="float-end price-hp" *ngIf="card.OnSale > 0; else NotOnSale">
+        <del>{{ card.price }}&euro;</del> {{ (card.price - (card.price * card.OnSale) / 100).toFixed(2) }}&euro;
+    </span>
+    <ng-template #NotOnSale>
+        <span class="float-end price-hp">{{card.price}}&euro;</span>
+    </ng-template>
+    <h5 class="card-title">{{card.title}} par {{user.user_surname}}</h5>
+    <span>{{card.loc}} </span>
+    <span>{{card.date.toLocaleString("fr-FR")}}</span>
+    <h5 class="card-text">{{card.text}}</h5>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="p-3">
+                <ngb-rating [max]="5" [(rate)]="currentRate" [readonly]="!getUserService().checkUserSession()"
+                    (rateChange)="createOrUpdateEvaluation()"></ngb-rating>
+                <p class="card-text"><small class="text-muted">Évaluations: {{ moyenneAffichage }} / 5</small></p>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-6 p-3">
+                    <div class="">
+                        <button class="btn me-3" (click)="Afficher()">Téléphone</button>
+                        <a *ngIf="getUserService().checkUserSession() && userSess.id != card.userid" class="btn"        (click)="newConversation(card.userid)">Contacter</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 p-3">
+                    <div class="d-flex align-items-center">
+                        <p *ngIf="afficher">numéro : {{ user.user_phone }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

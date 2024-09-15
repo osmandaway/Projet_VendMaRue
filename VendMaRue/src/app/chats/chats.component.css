@@ -1,0 +1,12 @@
+h3{
+    margin-top: 25px;
+    margin-left: 5%;
+  }
+  .center{
+    margin-top: 10px;
+    margin-left: 5%;
+  }
+  .lien{
+    color: var(--color3);
+    text-decoration: underline;
+  }

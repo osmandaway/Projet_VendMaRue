@@ -1,0 +1,21 @@
+.entete{
+  background-color: var(--color4);
+  height:200px;
+}
+
+.description{
+  background-color: #f8f9fa;
+}
+
+.ms-3{
+  margin-top: 130px;
+}
+
+.btn{
+  z-index: 1;
+}
+
+.img-thumbnail{
+  width: 150px;
+  z-index: 1;
+}

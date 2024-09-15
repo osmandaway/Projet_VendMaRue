@@ -1,0 +1,22 @@
+<div class="side-nav-content">
+  <ul class="nav-list" [ngClass]="{'nav-list-open': sideNavStatus}">
+    <li class="nav-list-item" routerLink="{{list[0].route}}">
+      <i class="{{list[0].icon}}"></i>
+      <span>
+        <a>{{list[0].name}}</a>
+      </span>
+    </li>
+    <li *ngIf="getUserService().checkUserSession()" class="nav-list-item" routerLink="{{list[1].route}}">
+      <i class="{{list[1].icon}}"></i>
+      <span>
+        <a>{{list[1].name}}</a>
+      </span>
+    </li>
+    <li *ngIf="getUserService().checkUserSession()" class="nav-list-item" routerLink="{{list[2].route+this.userservice.getUserId()}}">
+      <i class="{{list[2].icon}}"></i>
+      <span>
+        <a>{{list[2].name}}</a>
+      </span>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,42 @@
+<div class="sell-product-container">
+  <h2>Vendre un produit</h2>
+  <form (submit)="onSubmit()" id="productForm">
+    <div class="form-group">
+      <label for="title"><i class="fa-solid fa-file-alt"></i> Titre</label>
+      <input type="text" id="title" class="form-control" [(ngModel)]="product.title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="brand"><i class="fa-solid fa-store"></i> Marque</label>
+      <input type="text" id="brand" class="form-control" [(ngModel)]="product.brand" name="brand">
+    </div>
+    <div class="form-group">
+      <label for="price"><i class="fa-solid fa-money-bill-wave"></i> Prix</label>
+      <input type="number" id="price" class="form-control" [(ngModel)]="product.price" name="price">
+    </div>
+    <div class="form-group">
+      <label for="quantity"><i class="fa-solid fa-cubes"></i> Quantité</label>
+      <input type="number" id="quantity" class="form-control" [(ngModel)]="product.quantity" name="quantity">
+    </div>
+    <div class="form-group">
+      <label for="OnSale"><i class="fa-solid fa-calendar-day"></i> Réduction</label>
+      <input type="text" id="OnSale" class="form-control" [(ngModel)]="product.OnSale" name="date">
+    </div>
+    <div class="form-group">
+      <label for="location"><i class="fa-solid fa-map-marker-alt"></i> Localisation</label>
+      <input type="text" id="location" class="form-control" [(ngModel)]="product.loc" name="loc">
+    </div>
+    <div class="form-group">
+      <label for="description"><i class="fa-solid fa-align-left"></i> Description</label>
+      <textarea id="description" class="form-control" [(ngModel)]="product.text" name="text"></textarea>
+    </div>
+    <div class="form-group">
+      <label>
+        <i class="fa-solid fa-image"></i> Photo
+        <input type="file" id="photo" class="form-control" (change)="onFileSelected($event)" name="photo">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      {{ cardToEdit ? 'Modifier' : 'Créer le produit' }}
+    </button>
+  </form>
+</div>

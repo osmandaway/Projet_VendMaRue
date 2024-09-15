@@ -1,0 +1,24 @@
+<div class="card shadow-sm">
+  <img *ngIf="done" [src]="card.photo" class="card-img-top" alt="...">
+  <div class="label-top shadow-sm" *ngIf="card.OnSale > 0"
+    [ngStyle]="{ 'background': card.OnSale >= 80 ? 'red' : (card.OnSale >= 50 ? 'orange' : (card.OnSale >= 25 ? 'yellow' : '')) }">
+    -{{ card.OnSale }}%</div>
+  <div class="card-body">
+    <div class="clearfix mb-3">
+      <span class="float-start badge rounded-pill bg-primary">{{card.brand}}</span>
+      <span class="float-end price" *ngIf="card.OnSale > 0; else NotOnSale">
+        <del>{{ card.price }}&euro;</del> {{ (card.price - (card.price * card.OnSale) / 100).toFixed(2) }}&euro;
+      </span>
+      <ng-template #NotOnSale><span class="float-end price">{{card.price}}&euro;</span></ng-template>
+    </div>
+    <h5 class="card-title">{{card.title + " par " + getUserById(card.userid).user_surname}}</h5>
+    <span>{{card.loc}}</span>
+    <h5 class="card-title">{{card.text}}</h5>
+    <div class="text-center my-4"> <button class="btn" (click)="openModal()">Voir l'offre</button>
+      <a *ngIf="connect && user.id != card.userid" class="btn mb-3 test" (click)="newConversation(card.userid)">Contacter</a>
+      <button class="btn btn-primary" *ngIf="showEditButton" (click)="editCard()">Modifier</button>
+      <button class="btn btn-danger" *ngIf="showDeleteButton" (click)="deleteCard(card)">Supprimer</button>
+
+    </div>
+  </div>
+</div>

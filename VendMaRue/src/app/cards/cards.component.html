@@ -1,0 +1,8 @@
+<div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;" (scroll)="loadMoreCards()">
+  <div class="row row-cols-4">
+    <app-card *ngFor="let cardVar of displayedCards; let i = index" [card]="cardVar" [showEditButton]="false"></app-card>
+  </div>
+  <div *ngIf="index" class="text-center">
+    <button class="btn btn-primary mt-3" (click)="loadMoreCards()">Charger plus</button>
+  </div>
+</div>

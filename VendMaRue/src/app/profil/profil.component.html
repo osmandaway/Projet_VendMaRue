@@ -1,0 +1,50 @@
+<section *ngIf="user; " class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7 w-100">
+        <div class="card">
+          <div class="entete rounded-top text-white d-flex flex-row">
+            <div class="ms-4 mt-5 d-flex flex-column">
+              <img *ngIf="done" [src]="user.user_pp" alt="photo de profil" class="img-fluid img-thumbnail mt-4 mb-2">
+              <button *ngIf="onMyPage" type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark" routerLink="/settings">
+                Modifier le profil </button>
+            </div>
+            <div class="ms-3">
+              <h5>{{user.user_name}} <b>{{user.user_surname}}</b></h5>
+              <p>{{user.user_loc}}</p>
+            </div>
+          </div>
+          <p class="text-end">Membre depuis le {{ user.user_acc_date | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+          <div class="p-4 text-black">
+            <div class="d-flex justify-content-end text-center py-1">
+                <p class="mb-1 h5">{{cardlist.length}} </p>
+                <p class="small text-muted mb-0"> Articles</p>
+              </div>
+          </div>
+          <div class="card-body p-4 text-black">
+            <div class="mb-5">
+              <p class="lead fw-normal mb-1">À propos</p>
+              <div class="p-4 description">
+                <p class="font-italic mb-1">{{user.user_desc}}</p>
+                <p class="font-italic mb-1">{{user.user_email}}</p>
+                <p class="font-italic mb-1">{{user.user_phone}}</p>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0">Articles</p>
+            </div>
+            <div class="row">
+              <div class="col-md-6" *ngFor="let cardVar of cardlist; let i = index">
+                <app-card [card]="cardVar"></app-card>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<ng-template #errorBlock>
+  <h4 class="d-flex justify-content-center m-5">Cet utilisateur n'existe pas</h4>
+</ng-template>
